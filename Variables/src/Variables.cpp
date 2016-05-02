@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include "Screen.h"
+#include <time.h>
+#include "Swarm.h"
 
 #define SDL_MAIN_HANDLED
 using namespace std;
@@ -8,13 +10,14 @@ using namespace sdl_xwrjocl;
 
 int main(int argc, char* args[]) {
 
+	srand(time(NULL));
 	Screen screen;
 
 	if (screen.init() == false){
 		cout << "Error initializing the screen." << endl;
 	}
 
-
+	Swarm swarm;
 	int slapset=0;
 	while (true) {
 		//Update particles
@@ -30,13 +33,26 @@ int main(int argc, char* args[]) {
 		unsigned int green = (1+sin(slapset * 0.0002))*128;
 		unsigned int blue = (1+sin(slapset * 0.0003))*128;
 
+		const Particle * const pParticles = swarm.getParticle();
+		for (int i=0;i<Swarm::NPARTICLE;i++){
+			Particle particle = pParticles[i];
+			int x = (particle.m_x+1) * Screen::SCREEN_WIDTH/2;
+			int y = (particle.m_y+1) * Screen::SCREEN_HIGH/2;
+			screen.setPixel(x,y,red,green,blue);
+		}
+
+/*		slapset = SDL_GetTicks();
+		unsigned int red = (1+sin(slapset * 0.0001))*128;
+		unsigned int green = (1+sin(slapset * 0.0002))*128;
+		unsigned int blue = (1+sin(slapset * 0.0003))*128;
+
 
 		// screen.setPixel(400,300,100,0,0);
 		for (int y=0; y < screen.SCREEN_HIGH; y++){
 			for (int x=0; x < screen.SCREEN_WIDTH; x++){
 				screen.setPixel(y,x,red,green,blue);
 			}
-		}
+		}*/
 
 		screen.update();
 

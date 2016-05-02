@@ -15,8 +15,8 @@ namespace sdl_xwrjocl {
 class Screen {
 
 public:
-	const int SCREEN_HIGH = 800;
-	const int SCREEN_WIDTH = 600;
+	const static int SCREEN_HIGH = 800;
+	const static int SCREEN_WIDTH = 600;
 
 private:
 	SDL_Window *m_window;
