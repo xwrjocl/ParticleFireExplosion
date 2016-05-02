@@ -48,7 +48,11 @@ int main(int argc, char* args[]) {
 
 	Uint32 *buffer = new Uint32[SCREEN_HIGH * SCREEN_WIDTH];
 
-	memset(buffer, 255, SCREEN_HIGH*SCREEN_WIDTH*sizeof(Uint32));
+	memset(buffer, 0xff00ffff, SCREEN_HIGH*SCREEN_WIDTH*sizeof(Uint32));
+
+	for (int i=0; i< SCREEN_HIGH * SCREEN_WIDTH; i++){
+		buffer[i]=0xff00ffff;
+	}
 
 	SDL_UpdateTexture(texture, NULL, buffer, SCREEN_WIDTH*sizeof(Uint32));
 	SDL_RenderClear(renderer);
