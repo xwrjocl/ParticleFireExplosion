@@ -45,7 +45,7 @@ bool Screen::init(){
 
 	m_buffer = new Uint32[SCREEN_HIGH * SCREEN_WIDTH];
 
-	memset(m_buffer, 0xff00ffff, SCREEN_HIGH*SCREEN_WIDTH*sizeof(Uint32));
+	// memset(m_buffer, 0xff00ffff, SCREEN_HIGH*SCREEN_WIDTH*sizeof(Uint32));
 
 /*	for (int i=0; i< SCREEN_HIGH * SCREEN_WIDTH; i++){
 		m_buffer[i]=0xff00ffff;
