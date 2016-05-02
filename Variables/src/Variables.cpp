@@ -23,6 +23,16 @@ int main(int argc, char* args[]) {
 		if (screen.processEvent() == true){
 			break;
 		}
+
+		for (int y=0; y < screen.SCREEN_HIGH; y++){
+			for (int x=0; x < screen.SCREEN_WIDTH; x++){
+				screen.setPixel(y,x,128,0,255);
+			}
+		}
+
+		// screen.setPixel(400,300,100,0,0);
+		screen.update();
+
 	}
 
 	screen.close();
