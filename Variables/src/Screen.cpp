@@ -29,7 +29,7 @@ bool Screen::init(){
 	m_renderer = SDL_CreateRenderer(m_window, -1,
 			SDL_RENDERER_PRESENTVSYNC);
 	m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGB888,
-			SDL_TEXTUREACCESS_STATIC, SCREEN_HIGH, SCREEN_WIDTH);
+			SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HIGH);
 
 	if (m_renderer == NULL){
 		SDL_DestroyWindow(m_window);
@@ -92,6 +92,10 @@ void Screen::update(){
 	SDL_RenderClear(m_renderer);
 	SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
 	SDL_RenderPresent(m_renderer);
+}
+
+void Screen::clean(){
+	memset(m_buffer, 0, SCREEN_WIDTH*SCREEN_HIGH*sizeof(Uint32));
 }
 
 void Screen::close(){

@@ -14,13 +14,14 @@ namespace sdl_xwrjocl {
 
 class Swarm {
 public:
-	const static int NPARTICLE = 5000;
+	const static int NPARTICLE = 1000;
 private:
 	Particle * m_pParticle;
 
 public:
 	Swarm();
 	const Particle * const getParticle();
+	void updateSwarm ();
 	virtual ~Swarm();
 };
 

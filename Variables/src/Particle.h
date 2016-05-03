@@ -15,8 +15,12 @@ struct Particle {
 	double m_x;
 	double m_y;
 
+	double m_xSpeed;
+	double m_ySpeed;
+
 public:
 	Particle();
+	void updateParticle();
 };
 
 } /* namespace sdl_xwrjocl */
