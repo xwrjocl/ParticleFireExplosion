@@ -18,8 +18,8 @@ bool Screen::init(){
 	}
 
 	m_window = SDL_CreateWindow("Particle Fire Explosion",
-			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_HIGH,
-			SCREEN_WIDTH, SDL_WINDOW_SHOWN);
+			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH,
+			SCREEN_HIGH, SDL_WINDOW_SHOWN);
 
 	if (m_window == NULL) {
 		SDL_Quit();
