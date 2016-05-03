@@ -41,7 +41,7 @@ int main(int argc, char* args[]) {
 			screen.setPixel(x, y, red, green, blue);
 		}
 
-		swarm.updateSwarm();
+		swarm.updateSwarm(slapset);
 
 		screen.update();
 

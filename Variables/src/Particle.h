@@ -20,7 +20,7 @@ struct Particle {
 
 public:
 	Particle();
-	void updateParticle();
+	void updateParticle(int interval);
 };
 
 } /* namespace sdl_xwrjocl */

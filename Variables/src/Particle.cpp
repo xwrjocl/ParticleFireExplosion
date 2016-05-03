@@ -14,17 +14,17 @@ namespace sdl_xwrjocl {
 Particle::Particle():m_x(0),m_y(0) {
 
 	m_direcction = ((2 * M_PI * rand())/RAND_MAX)-1;
-	m_speed = (0.01 * rand())/RAND_MAX;
+	m_speed = (0.0001 * rand())/RAND_MAX;
 
 }
 
-void Particle::updateParticle(){
+void Particle::updateParticle(int interval){
 
 	double xSpeed = m_speed * cos(m_direcction);
 	double ySpeed = m_speed * sin(m_direcction);
 
-	m_x += xSpeed;
-	m_y += ySpeed;
+	m_x += xSpeed*interval;
+	m_y += ySpeed*interval;
 
 }
 

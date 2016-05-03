@@ -9,7 +9,7 @@
 
 namespace sdl_xwrjocl {
 
-Swarm::Swarm() {
+Swarm::Swarm():lastime(0) {
 	m_pParticle = new Particle[NPARTICLE];
 }
 
@@ -17,10 +17,16 @@ const Particle * const Swarm::getParticle(){
 	return m_pParticle;
 }
 
-void Swarm::updateSwarm (){
+void Swarm::updateSwarm (int slapset){
+
+	int interval = slapset - lastime;
+
 	for (int i=0; i<Swarm::NPARTICLE;i++){
-		m_pParticle[i].updateParticle();
+		m_pParticle[i].updateParticle(interval);
 	}
+
+	lastime = slapset;
+
 }
 
 Swarm::~Swarm() {
