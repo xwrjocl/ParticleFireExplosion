@@ -18,6 +18,9 @@ struct Particle {
 	double m_direcction;
 	double m_speed;
 
+private:
+	void init();
+
 public:
 	Particle();
 	void updateParticle(int interval);

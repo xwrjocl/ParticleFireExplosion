@@ -26,7 +26,7 @@ int main(int argc, char* args[]) {
 		if (screen.processEvent() == true) {
 			break;
 		}
-		screen.clean();
+		//screen.clean();
 		slapset = SDL_GetTicks();
 		unsigned int red = (1 + sin(slapset * 0.0001)) * 128;
 		unsigned int green = (1 + sin(slapset * 0.0002)) * 128;
@@ -40,6 +40,8 @@ int main(int argc, char* args[]) {
 					+ Screen::SCREEN_HIGH / 2;
 			screen.setPixel(x, y, red, green, blue);
 		}
+
+		screen.boxBlur();
 
 		swarm.updateSwarm(slapset);
 
